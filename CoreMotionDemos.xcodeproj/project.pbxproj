@@ -15,6 +15,7 @@
 		C96B96EE1A9B7D060080A753 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C96B96ED1A9B7D060080A753 /* Images.xcassets */; };
 		C96B96F11A9B7D060080A753 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C96B96EF1A9B7D060080A753 /* LaunchScreen.xib */; };
 		C96B96FD1A9B7D060080A753 /* CoreMotionDemosTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C96B96FC1A9B7D060080A753 /* CoreMotionDemosTests.m */; };
+		C96B970A1A9B9AA00080A753 /* AltimeterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C96B97091A9B9AA00080A753 /* AltimeterViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,8 @@
 		C96B96F61A9B7D060080A753 /* CoreMotionDemosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoreMotionDemosTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C96B96FB1A9B7D060080A753 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C96B96FC1A9B7D060080A753 /* CoreMotionDemosTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoreMotionDemosTests.m; sourceTree = "<group>"; };
+		C96B97081A9B9AA00080A753 /* AltimeterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AltimeterViewController.h; sourceTree = "<group>"; };
+		C96B97091A9B9AA00080A753 /* AltimeterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AltimeterViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +137,8 @@
 		C96B97071A9B81590080A753 /* Demos */ = {
 			isa = PBXGroup;
 			children = (
+				C96B97081A9B9AA00080A753 /* AltimeterViewController.h */,
+				C96B97091A9B9AA00080A753 /* AltimeterViewController.m */,
 				C96B96E71A9B7D060080A753 /* FloorViewController.h */,
 				C96B96E81A9B7D060080A753 /* FloorViewController.m */,
 			);
@@ -242,6 +247,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C96B96E31A9B7D060080A753 /* AppDelegate.m in Sources */,
+				C96B970A1A9B9AA00080A753 /* AltimeterViewController.m in Sources */,
 				C96B96E61A9B7D060080A753 /* DemoListViewController.m in Sources */,
 				C96B96E01A9B7D060080A753 /* main.m in Sources */,
 				C96B96E91A9B7D060080A753 /* FloorViewController.m in Sources */,

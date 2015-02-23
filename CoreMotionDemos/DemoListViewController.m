@@ -6,13 +6,17 @@
 //  Copyright (c) 2015 Elsewise LLC. All rights reserved.
 //
 
+
+@import CoreMotion;
+
 #import "DemoListViewController.h"
 #import "FloorViewController.h"
 
+
 @interface DemoListViewController ()
 
-@property NSMutableArray *objects;
 @end
+
 
 @implementation DemoListViewController
 
@@ -41,14 +45,42 @@
 //    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
+
 #pragma mark - Segues
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-//    if ([[segue identifier] isEqualToString:@"showDetail"]) {
-//        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-//        NSDate *object = self.objects[indexPath.row];
-//        [[segue destinationViewController] setDetailItem:object];
-//    }
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
+    
+    if ([identifier isEqualToString:@"PushToAltimeterSegue"]) {
+        if ([CMAltimeter isRelativeAltitudeAvailable]) {
+            return YES;
+        } else {
+            // show alert
+            [self showDeviceNotCapableAlertWithMessage:@"This device does not support relative altitude measurements."];
+            return NO;
+        }
+    }
+    
+    return YES;
 }
+
+
+#pragma mark - User Alerts
+
+- (void)showDeviceNotCapableAlertWithMessage:(NSString *)message {
+    
+    UIAlertController *ac = [UIAlertController alertControllerWithTitle:@"Device Lacks Capability"
+                                                                message:message
+                                                         preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *closeAction = [UIAlertAction actionWithTitle:@"OK"
+                                                          style:UIAlertActionStyleCancel
+                                                        handler:nil];
+    [ac addAction:closeAction];
+    
+    [self presentViewController:ac
+                       animated:YES
+                     completion:nil];
+}
+
 
 @end

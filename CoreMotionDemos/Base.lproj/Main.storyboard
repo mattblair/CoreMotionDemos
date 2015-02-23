@@ -5,10 +5,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Master-->
+        <!--Demo List Nav-->
         <scene sceneID="cUi-kZ-frf">
             <objects>
-                <navigationController title="Master" id="rS3-R9-Ivy" sceneMemberID="viewController">
+                <navigationController title="Demo List Nav" id="rS3-R9-Ivy" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="yXu-0R-QUA">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -20,11 +20,11 @@
             </objects>
             <point key="canvasLocation" x="-148" y="64"/>
         </scene>
-        <!--Master-->
+        <!--Demo List-->
         <scene sceneID="VgW-fR-Quf">
             <objects>
-                <tableViewController title="Master" id="pGg-6v-bdr" customClass="DemoListViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="mLL-gJ-YKr">
+                <tableViewController title="Demo List" id="pGg-6v-bdr" customClass="DemoListViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="mLL-gJ-YKr">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -110,6 +110,9 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <segue destination="qvX-77-TCE" kind="show" identifier="PushToAltimeter" id="6fF-lW-uqt"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="14E-8u-o27" style="IBUITableViewCellStyleDefault" id="RwI-kD-qRt">
                                         <rect key="frame" x="0.0" y="86" width="320" height="44"/>
@@ -118,7 +121,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" text="CLFloorDetector" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="14E-8u-o27">
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" text="CLFloor Detector" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="14E-8u-o27">
                                                     <rect key="frame" x="15" y="0.0" width="270" height="43"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
@@ -146,10 +149,55 @@
             </objects>
             <point key="canvasLocation" x="605" y="64"/>
         </scene>
-        <!--Detail-->
+        <!--Altimeter View Controller-->
+        <scene sceneID="Yy2-vc-lVY">
+            <objects>
+                <viewController id="qvX-77-TCE" customClass="AltimeterViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="XLp-EQ-wfY"/>
+                        <viewControllerLayoutGuide type="bottom" id="1hZ-yf-HQ3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Lfk-aH-vb5">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CMAltimeter tracks changes in altitude and pressure, relative to each time it is restarted." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qiU-Ko-QJZ">
+                                <rect key="frame" x="16" y="104" width="568" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Starting..." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BMN-ca-gnp">
+                                <rect key="frame" x="16" y="472" width="568" height="48"/>
+                                <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="40"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="BMN-ca-gnp" firstAttribute="top" relation="greaterThanOrEqual" secondItem="qiU-Ko-QJZ" secondAttribute="bottom" constant="40" id="DvC-0L-le9"/>
+                            <constraint firstItem="qiU-Ko-QJZ" firstAttribute="top" secondItem="XLp-EQ-wfY" secondAttribute="bottom" constant="40" id="NAj-Bq-tmS"/>
+                            <constraint firstItem="BMN-ca-gnp" firstAttribute="leading" secondItem="Lfk-aH-vb5" secondAttribute="leadingMargin" id="g9A-0U-ZXx"/>
+                            <constraint firstItem="1hZ-yf-HQ3" firstAttribute="top" secondItem="BMN-ca-gnp" secondAttribute="bottom" constant="80" id="rQ7-Oo-6Ry"/>
+                            <constraint firstItem="qiU-Ko-QJZ" firstAttribute="leading" secondItem="Lfk-aH-vb5" secondAttribute="leadingMargin" id="uuM-1C-Lbu"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="qiU-Ko-QJZ" secondAttribute="trailing" id="vG1-Qj-8bE"/>
+                            <constraint firstItem="BMN-ca-gnp" firstAttribute="trailing" secondItem="Lfk-aH-vb5" secondAttribute="trailingMargin" id="xdf-4v-Bzu"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="explainerLabel" destination="qiU-Ko-QJZ" id="h0F-l5-P0D"/>
+                        <outlet property="resultsLabel" destination="BMN-ca-gnp" id="eWG-Xu-sCo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="E8D-9h-GpJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1335" y="626"/>
+        </scene>
+        <!--Floor Detector-->
         <scene sceneID="Cn3-H9-jdl">
             <objects>
-                <viewController title="Detail" id="Ah7-4n-0Wa" customClass="FloorViewController" sceneMemberID="viewController">
+                <viewController title="Floor Detector" id="Ah7-4n-0Wa" customClass="FloorViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cIm-e0-J51"/>
                         <viewControllerLayoutGuide type="bottom" id="a0L-h9-sNL"/>
