@@ -1,5 +1,5 @@
 //
-//  MasterViewController.h
+//  DemoListViewController.h
 //  CoreMotionDemos
 //
 //  Created by Matt Blair on 2/23/15.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MasterViewController : UITableViewController
+@interface DemoListViewController : UITableViewController
 
 
 @end
