@@ -158,7 +158,7 @@ typedef NS_ENUM(NSInteger, CMDRealTimeStartFrom) {
     // Log it
     NSLog(@"Data Received: %@", pmData);
     
-    NSString *timestampString = [self.timestampFormatter stringFromDate:[NSDate date]];
+    NSString *timestampString = [self.timestampFormatter stringFromDate:pmData.endDate];
     NSString *logString = [NSString stringWithFormat:@"%@ - %@ steps",
                            timestampString, pmData.numberOfSteps];
     [self.stepCountLog addObject:logString];
