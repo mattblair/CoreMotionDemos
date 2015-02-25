@@ -30,7 +30,19 @@ NSString * const CMDSegueToPedometerLog = @"PushToPedometerLogSegue";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
+    UIButton *linkButton = [[UIButton alloc] init];
+    
+    [linkButton setTitle:@"View Source and README on GitHub"
+                forState:UIControlStateNormal];
+    [linkButton setTitleColor:[UIColor blueColor]
+                     forState:UIControlStateNormal];
+    [linkButton addTarget:self
+                   action:@selector(showOnGitHub:)
+         forControlEvents:UIControlEventTouchUpInside];
+    [linkButton sizeToFit];
+    
+    self.tableView.tableFooterView = linkButton;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -97,6 +109,15 @@ NSString * const CMDSegueToPedometerLog = @"PushToPedometerLogSegue";
     [self presentViewController:ac
                        animated:YES
                      completion:nil];
+}
+
+
+#pragma mark - Show on GitHub
+
+- (void)showOnGitHub:(UIButton *)sender {
+    
+    NSURL *gitHubURL = [NSURL URLWithString:@"https://github.com/mattblair/CoreMotionDemos"];
+    [[UIApplication sharedApplication] openURL:gitHubURL];
 }
 
 
