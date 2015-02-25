@@ -9,7 +9,7 @@
 
 #import <UIKit/UIKit.h>
 
-
+extern NSString * const CMDSegueToMotionActivity;//PushToActivityTypeSegue
 extern NSString * const CMDSegueToRealTimePedometer;
 extern NSString * const CMDSegueToHistoricalPedometer;
 extern NSString * const CMDSegueToAltimeter;

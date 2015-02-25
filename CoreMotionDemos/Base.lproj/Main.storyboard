@@ -20,6 +20,62 @@
             </objects>
             <point key="canvasLocation" x="-148" y="64"/>
         </scene>
+        <!--Motion Activity View Controller-->
+        <scene sceneID="Yka-G7-OOa">
+            <objects>
+                <viewController id="QZn-se-fHQ" customClass="MotionActivityViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nY2-uB-NgQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="ID8-7M-3EW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4UG-be-NDx">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Rt-iV-MIC">
+                                <rect key="frame" x="16" y="88" width="568" height="61"/>
+                                <string key="text">CMMotionActivityManager will try to determine the current type of motion of the person using this device, along with a confidence value. DO NOT USE THIS FEATURE WHILE OPERATING A MOTOR VEHICLE.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confidence" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CZY-R9-DdH">
+                                <rect key="frame" x="0.0" y="189" width="600" height="20"/>
+                                <color key="backgroundColor" red="0.0" green="0.61568629740000003" blue="0.14901961389999999" alpha="1" colorSpace="deviceRGB"/>
+                                <fontDescription key="fontDescription" name="Menlo-Bold" family="Menlo" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Results" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cN1-vC-xYI">
+                                <rect key="frame" x="16" y="249" width="568" height="24"/>
+                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="20"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="cN1-vC-xYI" firstAttribute="leading" secondItem="4UG-be-NDx" secondAttribute="leadingMargin" id="4ux-sR-IPV"/>
+                            <constraint firstItem="8Rt-iV-MIC" firstAttribute="top" secondItem="nY2-uB-NgQ" secondAttribute="bottom" constant="24" id="6Uo-Fj-Z8d"/>
+                            <constraint firstAttribute="trailing" secondItem="CZY-R9-DdH" secondAttribute="trailing" id="8b5-8D-hXK"/>
+                            <constraint firstItem="CZY-R9-DdH" firstAttribute="top" secondItem="8Rt-iV-MIC" secondAttribute="bottom" constant="40" id="FDm-xn-7OH"/>
+                            <constraint firstItem="cN1-vC-xYI" firstAttribute="top" secondItem="CZY-R9-DdH" secondAttribute="bottom" constant="40" id="LcI-hG-mv6"/>
+                            <constraint firstItem="8Rt-iV-MIC" firstAttribute="leading" secondItem="4UG-be-NDx" secondAttribute="leadingMargin" id="OJs-al-Wgf"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="cN1-vC-xYI" secondAttribute="trailing" id="Tw8-bX-iaq"/>
+                            <constraint firstItem="CZY-R9-DdH" firstAttribute="leading" secondItem="4UG-be-NDx" secondAttribute="leading" id="YmK-1D-LNf"/>
+                            <constraint firstItem="8Rt-iV-MIC" firstAttribute="trailing" secondItem="4UG-be-NDx" secondAttribute="trailingMargin" id="boS-uj-vC2"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="confidenceLabel" destination="CZY-R9-DdH" id="6uA-gh-oWw"/>
+                        <outlet property="explainerLabel" destination="8Rt-iV-MIC" id="R33-9O-70b"/>
+                        <outlet property="resultsLabel" destination="cN1-vC-xYI" id="saM-rd-1Xa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AOn-8t-4Ai" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="605" y="-771"/>
+        </scene>
         <!--Demo List-->
         <scene sceneID="VgW-fR-Quf">
             <objects>
@@ -29,7 +85,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
-                            <tableViewSection headerTitle="TBD" id="tbW-5L-hh6">
+                            <tableViewSection headerTitle="Motion Activity" id="tbW-5L-hh6">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="2pz-XF-uhl" style="IBUITableViewCellStyleDefault" id="m0d-ak-lc9">
                                         <rect key="frame" x="0.0" y="86" width="320" height="44"/>
@@ -38,7 +94,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" text="TBD" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2pz-XF-uhl">
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" text="Real-time Motion Activity" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2pz-XF-uhl">
                                                     <rect key="frame" x="15" y="0.0" width="270" height="43"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
@@ -48,6 +104,9 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <segue destination="QZn-se-fHQ" kind="show" identifier="PushToActivityTypeSegue" id="yoj-YY-ygF"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>

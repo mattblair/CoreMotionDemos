@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C95A65531A9D5F6800EF3B1E /* PedometerLogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C95A65521A9D5F6800EF3B1E /* PedometerLogViewController.m */; };
+		C95A65561A9D82BD00EF3B1E /* MotionActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C95A65551A9D82BD00EF3B1E /* MotionActivityViewController.m */; };
 		C967470E1A9CEE1D00A9F1BF /* RealTimePedometerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C967470D1A9CEE1D00A9F1BF /* RealTimePedometerViewController.m */; };
 		C96747111A9CEE5600A9F1BF /* HistoricalPedometerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C96747101A9CEE5600A9F1BF /* HistoricalPedometerViewController.m */; };
 		C96B96E01A9B7D060080A753 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C96B96DF1A9B7D060080A753 /* main.m */; };
@@ -34,6 +35,8 @@
 /* Begin PBXFileReference section */
 		C95A65511A9D5F6800EF3B1E /* PedometerLogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PedometerLogViewController.h; sourceTree = "<group>"; };
 		C95A65521A9D5F6800EF3B1E /* PedometerLogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PedometerLogViewController.m; sourceTree = "<group>"; };
+		C95A65541A9D82BD00EF3B1E /* MotionActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotionActivityViewController.h; sourceTree = "<group>"; };
+		C95A65551A9D82BD00EF3B1E /* MotionActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotionActivityViewController.m; sourceTree = "<group>"; };
 		C967470C1A9CEE1D00A9F1BF /* RealTimePedometerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RealTimePedometerViewController.h; sourceTree = "<group>"; };
 		C967470D1A9CEE1D00A9F1BF /* RealTimePedometerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RealTimePedometerViewController.m; sourceTree = "<group>"; };
 		C967470F1A9CEE5600A9F1BF /* HistoricalPedometerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoricalPedometerViewController.h; sourceTree = "<group>"; };
@@ -146,6 +149,8 @@
 		C96B97071A9B81590080A753 /* Demos */ = {
 			isa = PBXGroup;
 			children = (
+				C95A65541A9D82BD00EF3B1E /* MotionActivityViewController.h */,
+				C95A65551A9D82BD00EF3B1E /* MotionActivityViewController.m */,
 				C967470C1A9CEE1D00A9F1BF /* RealTimePedometerViewController.h */,
 				C967470D1A9CEE1D00A9F1BF /* RealTimePedometerViewController.m */,
 				C95A65511A9D5F6800EF3B1E /* PedometerLogViewController.h */,
@@ -262,6 +267,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C96B96E31A9B7D060080A753 /* AppDelegate.m in Sources */,
+				C95A65561A9D82BD00EF3B1E /* MotionActivityViewController.m in Sources */,
 				C967470E1A9CEE1D00A9F1BF /* RealTimePedometerViewController.m in Sources */,
 				C96B970A1A9B9AA00080A753 /* AltimeterViewController.m in Sources */,
 				C96B96E61A9B7D060080A753 /* DemoListViewController.m in Sources */,

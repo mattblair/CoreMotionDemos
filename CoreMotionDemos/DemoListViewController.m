@@ -13,6 +13,7 @@
 #import "FloorViewController.h"
 
 
+NSString * const CMDSegueToMotionActivity = @"PushToActivityTypeSegue";
 NSString * const CMDSegueToRealTimePedometer = @"PushToRealTimePedometerSegue";
 NSString * const CMDSegueToHistoricalPedometer = @"PushToHistoricalPedometerSegue";
 NSString * const CMDSegueToAltimeter = @"PushToAltimeterSegue";
@@ -44,6 +45,16 @@ NSString * const CMDSegueToPedometerLog = @"PushToPedometerLogSegue";
     
     // Class methods which check device feature availability do not trigger
     // permissions requests
+    
+    if ([identifier isEqualToString:CMDSegueToMotionActivity]) {
+        if ([CMMotionActivityManager isActivityAvailable]) {
+            return YES;
+        } else {
+            
+            [self showFeatureNotAvailableAlertWithMessage:@"This device does not support motion activity detection."];
+            return NO;
+        }
+    }
     
     BOOL isPedometerRelated = [identifier isEqualToString:CMDSegueToRealTimePedometer] ||
     [identifier isEqualToString:CMDSegueToHistoricalPedometer];
