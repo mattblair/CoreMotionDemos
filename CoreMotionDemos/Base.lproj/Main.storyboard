@@ -70,6 +70,9 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <segue destination="siV-jc-maZ" kind="show" identifier="PushToRealTimePedometerSegue" id="SAi-FI-EAV"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="j3e-xQ-x0K" style="IBUITableViewCellStyleDefault" id="jHu-Hk-jNx">
                                         <rect key="frame" x="0.0" y="86" width="320" height="44"/>
@@ -88,6 +91,9 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <segue destination="Eda-C7-2OW" kind="show" identifier="PushToHistoricalPedometerSegue" id="8qK-9Z-4p4"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -111,7 +117,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
-                                            <segue destination="qvX-77-TCE" kind="show" identifier="PushToAltimeter" id="6fF-lW-uqt"/>
+                                            <segue destination="qvX-77-TCE" kind="show" identifier="PushToAltimeterSegue" id="6fF-lW-uqt"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="14E-8u-o27" style="IBUITableViewCellStyleDefault" id="RwI-kD-qRt">
@@ -149,6 +155,131 @@
             </objects>
             <point key="canvasLocation" x="605" y="64"/>
         </scene>
+        <!--Real Time Pedometer View Controller-->
+        <scene sceneID="IRI-uk-2uF">
+            <objects>
+                <viewController id="siV-jc-maZ" customClass="RealTimePedometerViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="RDu-yA-zmz"/>
+                        <viewControllerLayoutGuide type="bottom" id="I0Q-PA-dpC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8nX-Op-unZ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Waiting for data..." lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="De3-gg-Iks">
+                                <rect key="frame" x="16" y="249" width="568" height="24"/>
+                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="20"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eeZ-Km-meg">
+                                <rect key="frame" x="16" y="80" width="568" height="61"/>
+                                <string key="text">Fetches data from CMPedometer in real-time. By default, it will count steps (etc.) from the moment it's pushed, but it can also provide a cumulative total from a start date prior to the push.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="di4-RI-gLh">
+                                <rect key="frame" x="16" y="181" width="568" height="29"/>
+                                <segments>
+                                    <segment title="Now"/>
+                                    <segment title="6 Hours Ago"/>
+                                    <segment title="12 Hours Ago"/>
+                                </segments>
+                                <connections>
+                                    <action selector="handleStartTimeSelected:" destination="siV-jc-maZ" eventType="valueChanged" id="yxq-m5-ONj"/>
+                                </connections>
+                            </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zNF-Ji-5t7">
+                                <rect key="frame" x="240" y="550" width="132" height="30"/>
+                                <state key="normal" title="Show Current Logs">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="HEi-LB-CdZ" kind="show" identifier="PushToPedometerLogSegue" id="h8J-R1-GJv"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="I0Q-PA-dpC" firstAttribute="top" secondItem="zNF-Ji-5t7" secondAttribute="bottom" constant="20" id="4bs-7D-KZr"/>
+                            <constraint firstItem="De3-gg-Iks" firstAttribute="top" secondItem="di4-RI-gLh" secondAttribute="bottom" constant="40" id="Do8-Hj-6FP"/>
+                            <constraint firstItem="di4-RI-gLh" firstAttribute="trailing" secondItem="8nX-Op-unZ" secondAttribute="trailingMargin" id="FIL-Eg-XlI"/>
+                            <constraint firstItem="di4-RI-gLh" firstAttribute="leading" secondItem="8nX-Op-unZ" secondAttribute="leadingMargin" id="H5v-ey-V4p"/>
+                            <constraint firstItem="eeZ-Km-meg" firstAttribute="top" secondItem="RDu-yA-zmz" secondAttribute="bottom" constant="16" id="JdF-q2-MZ8"/>
+                            <constraint firstItem="De3-gg-Iks" firstAttribute="leading" secondItem="8nX-Op-unZ" secondAttribute="leadingMargin" id="MYe-Vo-Ut0"/>
+                            <constraint firstItem="eeZ-Km-meg" firstAttribute="trailing" secondItem="8nX-Op-unZ" secondAttribute="trailingMargin" id="SxT-EB-xm3"/>
+                            <constraint firstItem="De3-gg-Iks" firstAttribute="trailing" secondItem="8nX-Op-unZ" secondAttribute="trailingMargin" id="Znl-MX-PsS"/>
+                            <constraint firstItem="eeZ-Km-meg" firstAttribute="leading" secondItem="8nX-Op-unZ" secondAttribute="leadingMargin" id="jbh-4y-GMV"/>
+                            <constraint firstAttribute="centerX" secondItem="zNF-Ji-5t7" secondAttribute="centerX" constant="-6" id="kam-eq-gW7"/>
+                            <constraint firstItem="di4-RI-gLh" firstAttribute="top" secondItem="eeZ-Km-meg" secondAttribute="bottom" constant="40" id="wHf-b5-4JR"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="resultsLabel" destination="De3-gg-Iks" id="My2-t0-BLM"/>
+                        <outlet property="showLogsButton" destination="zNF-Ji-5t7" id="PrV-p7-UXt"/>
+                        <outlet property="startSegmentedControl" destination="di4-RI-gLh" id="60L-qn-Otx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aWd-QE-ko1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1307" y="-509"/>
+        </scene>
+        <!--Pedometer Log View Controller-->
+        <scene sceneID="nJG-WF-cNe">
+            <objects>
+                <viewController id="HEi-LB-CdZ" customClass="PedometerLogViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="v5d-zc-w7f"/>
+                        <viewControllerLayoutGuide type="bottom" id="Xi5-rt-Wd2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ZEd-dz-Pcq">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fci-Db-Qxc">
+                                <rect key="frame" x="16" y="0.0" width="568" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="fci-Db-Qxc" firstAttribute="leading" secondItem="ZEd-dz-Pcq" secondAttribute="leadingMargin" id="170-BY-yHq"/>
+                            <constraint firstItem="Xi5-rt-Wd2" firstAttribute="top" secondItem="fci-Db-Qxc" secondAttribute="bottom" id="BT0-sw-Uv8"/>
+                            <constraint firstItem="fci-Db-Qxc" firstAttribute="top" secondItem="ZEd-dz-Pcq" secondAttribute="topMargin" id="Q1l-8S-hAT"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="fci-Db-Qxc" secondAttribute="trailing" id="o97-gt-woI"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="logTextView" destination="fci-Db-Qxc" id="Ovj-ub-xNI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BC3-7m-17C" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1985" y="-509"/>
+        </scene>
+        <!--Historical Pedometer View Controller-->
+        <scene sceneID="HJQ-zV-fY9">
+            <objects>
+                <viewController id="Eda-C7-2OW" customClass="HistoricalPedometerViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0xF-36-TJD"/>
+                        <viewControllerLayoutGuide type="bottom" id="a3S-Gu-dXr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2wa-Ce-54X">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sSy-AT-8TI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1307" y="179"/>
+        </scene>
         <!--Altimeter View Controller-->
         <scene sceneID="Yy2-vc-lVY">
             <objects>
@@ -168,8 +299,8 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Starting..." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BMN-ca-gnp">
-                                <rect key="frame" x="16" y="472" width="568" height="48"/>
-                                <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="40"/>
+                                <rect key="frame" x="16" y="473" width="568" height="47"/>
+                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="40"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -192,7 +323,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E8D-9h-GpJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1335" y="626"/>
+            <point key="canvasLocation" x="1307" y="980"/>
         </scene>
         <!--Floor Detector-->
         <scene sceneID="Cn3-H9-jdl">
@@ -207,15 +338,15 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MiQ-Fr-6Xm">
-                                <rect key="frame" x="16" y="72" width="568" height="400"/>
+                                <rect key="frame" x="16" y="72" width="568" height="401"/>
                                 <string key="text">CLFloor is actually part of the CoreLocation framework, not CoreMotion. I added this as a bonus, because I wanted a way to test availability on the go. Location updates will start as soon as you give permission. For more information, check the readme of this project. </string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Is there a floor?" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="x06-2g-PtE">
-                                <rect key="frame" x="16" y="512" width="568" height="48"/>
-                                <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="40"/>
+                                <rect key="frame" x="16" y="513" width="568" height="47"/>
+                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="40"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>

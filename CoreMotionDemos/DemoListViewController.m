@@ -13,6 +13,13 @@
 #import "FloorViewController.h"
 
 
+NSString * const CMDSegueToRealTimePedometer = @"PushToRealTimePedometerSegue";
+NSString * const CMDSegueToHistoricalPedometer = @"PushToHistoricalPedometerSegue";
+NSString * const CMDSegueToAltimeter = @"PushToAltimeterSegue";
+NSString * const CMDSegueToCLFloor = @"PushToFloorSegue";
+NSString * const CMDSegueToPedometerLog = @"PushToPedometerLogSegue";
+
+
 @interface DemoListViewController ()
 
 @end
@@ -50,7 +57,7 @@
 
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
     
-    if ([identifier isEqualToString:@"PushToAltimeterSegue"]) {
+    if ([identifier isEqualToString:CMDSegueToAltimeter]) {
         if ([CMAltimeter isRelativeAltitudeAvailable]) {
             return YES;
         } else {
