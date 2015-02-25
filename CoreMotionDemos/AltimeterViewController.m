@@ -65,11 +65,15 @@
 
 - (void)startUpdates {
     
+    __weak __typeof(self)weakSelf = self;
+    
     CMAltitudeHandler handler = ^(CMAltitudeData *altitudeData, NSError *error) {
+        
+        __strong __typeof(weakSelf)strongSelf = weakSelf;
         
         dispatch_async(dispatch_get_main_queue(), ^{
             
-            NSLog(@"Raw Data: %@", altitudeData);
+            NSLog(@"Altitude Data: %@", altitudeData);
             
             NSDictionary *resultAttributes;
             if ([altitudeData.relativeAltitude doubleValue] > 0) {
@@ -80,10 +84,13 @@
             
             // TODO: only change the colors of the values, not the whole thing
             
-            NSString *resultString = [NSString stringWithFormat:@"Altitude Change:\n%1.2g meters\n\n Pressure Change:\n%1.4g kilopascals", [altitudeData.relativeAltitude doubleValue], [altitudeData.pressure doubleValue]];
+            NSString *resultString = [NSString stringWithFormat:@"Altitude Change:\n%1.2f meters\n\n Pressure Change:\n%1.4f kilopascals",
+                                      [altitudeData.relativeAltitude doubleValue], [altitudeData.pressure doubleValue]];
             
-            self.resultsLabel.attributedText = [[NSAttributedString alloc] initWithString:resultString
-                                                                               attributes:resultAttributes];
+            if (strongSelf) {
+                strongSelf.resultsLabel.attributedText = [[NSAttributedString alloc] initWithString:resultString
+                                                                                         attributes:resultAttributes];
+            }
         });
     };
     
