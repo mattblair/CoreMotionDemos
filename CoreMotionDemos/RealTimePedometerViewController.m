@@ -193,7 +193,6 @@ typedef NS_ENUM(NSInteger, CMDRealTimeStartFrom) {
 
 - (IBAction)handleStartTimeSelected:(UISegmentedControl *)sender {
     
-    
     self.startTimeFrom = self.startSegmentedControl.selectedSegmentIndex;
     NSLog(@"Would start gathering data from %@", [self dateForStartSelection:self.startTimeFrom]);
     
@@ -231,7 +230,6 @@ typedef NS_ENUM(NSInteger, CMDRealTimeStartFrom) {
     return YES;
 }
 
-
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
     if ([[segue identifier] isEqualToString:CMDSegueToPedometerLog]) {
@@ -240,6 +238,5 @@ typedef NS_ENUM(NSInteger, CMDRealTimeStartFrom) {
         logVC.logString = [self.stepCountLog componentsJoinedByString:@"\n"];
     }
 }
-
 
 @end
