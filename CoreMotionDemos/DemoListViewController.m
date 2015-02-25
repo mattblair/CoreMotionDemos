@@ -27,15 +27,9 @@ NSString * const CMDSegueToPedometerLog = @"PushToPedometerLogSegue";
 
 @implementation DemoListViewController
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-//    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
-//    self.navigationItem.rightBarButtonItem = addButton;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -43,26 +37,31 @@ NSString * const CMDSegueToPedometerLog = @"PushToPedometerLogSegue";
     // Dispose of any resources that can be recreated.
 }
 
-- (void)insertNewObject:(id)sender {
-//    if (!self.objects) {
-//        self.objects = [[NSMutableArray alloc] init];
-//    }
-//    [self.objects insertObject:[NSDate date] atIndex:0];
-//    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-//    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-}
-
 
 #pragma mark - Segues
 
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
     
+    // Class methods which check device feature availability do not trigger
+    // permissions requests
+    
+    BOOL isPedometerRelated = [identifier isEqualToString:CMDSegueToRealTimePedometer] ||
+    [identifier isEqualToString:CMDSegueToHistoricalPedometer];
+    
+    if (isPedometerRelated) {
+        if ([CMPedometer isStepCountingAvailable]) {
+            return YES;
+        } else {
+            [self showFeatureNotAvailableAlertWithMessage:@"This device does not support step counting."];
+            return NO;
+        }
+    }
+    
     if ([identifier isEqualToString:CMDSegueToAltimeter]) {
         if ([CMAltimeter isRelativeAltitudeAvailable]) {
             return YES;
         } else {
-            // show alert
-            [self showDeviceNotCapableAlertWithMessage:@"This device does not support relative altitude measurements."];
+            [self showFeatureNotAvailableAlertWithMessage:@"This device does not support relative altitude measurements."];
             return NO;
         }
     }
@@ -73,9 +72,9 @@ NSString * const CMDSegueToPedometerLog = @"PushToPedometerLogSegue";
 
 #pragma mark - User Alerts
 
-- (void)showDeviceNotCapableAlertWithMessage:(NSString *)message {
+- (void)showFeatureNotAvailableAlertWithMessage:(NSString *)message {
     
-    UIAlertController *ac = [UIAlertController alertControllerWithTitle:@"Device Lacks Capability"
+    UIAlertController *ac = [UIAlertController alertControllerWithTitle:@"Uh Oh. Not Available."
                                                                 message:message
                                                          preferredStyle:UIAlertControllerStyleAlert];
     
