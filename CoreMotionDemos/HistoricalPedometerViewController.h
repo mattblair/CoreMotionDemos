@@ -10,4 +10,10 @@
 
 @interface HistoricalPedometerViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UILabel *explainerLabel;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *timeRangeSegmentedControl;
+@property (weak, nonatomic) IBOutlet UILabel *resultsLabel;
+
+- (IBAction)timeRangeSelected:(UISegmentedControl *)sender;
+
 @end

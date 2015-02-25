@@ -332,8 +332,48 @@
                     <view key="view" contentMode="scaleToFill" id="2wa-Ce-54X">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CMPedometer can also provide historical data for any arbitrary time range in the last seven days." lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cfw-Gr-Rl2">
+                                <rect key="frame" x="16" y="92" width="568" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="oBr-fN-g75">
+                                <rect key="frame" x="151" y="173" width="299" height="29"/>
+                                <segments>
+                                    <segment title="Last 12 Hours"/>
+                                    <segment title="Last 3 Days"/>
+                                    <segment title="This Week"/>
+                                </segments>
+                                <connections>
+                                    <action selector="timeRangeSelected:" destination="Eda-C7-2OW" eventType="valueChanged" id="GoY-vg-W6A"/>
+                                </connections>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Results" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C40-bs-8CU">
+                                <rect key="frame" x="16" y="241" width="568" height="33"/>
+                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="28"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="oBr-fN-g75" secondAttribute="centerX" id="4H5-7U-Lky"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="C40-bs-8CU" secondAttribute="trailing" id="By7-Iu-7y0"/>
+                            <constraint firstItem="cfw-Gr-Rl2" firstAttribute="leading" secondItem="2wa-Ce-54X" secondAttribute="leadingMargin" id="HBA-Oc-7ll"/>
+                            <constraint firstItem="C40-bs-8CU" firstAttribute="top" secondItem="oBr-fN-g75" secondAttribute="bottom" constant="40" id="JgA-Na-lF2"/>
+                            <constraint firstItem="oBr-fN-g75" firstAttribute="top" secondItem="cfw-Gr-Rl2" secondAttribute="bottom" constant="40" id="PEd-Pb-Rkv"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="cfw-Gr-Rl2" secondAttribute="trailing" id="Pcy-6J-aKp"/>
+                            <constraint firstItem="C40-bs-8CU" firstAttribute="leading" secondItem="2wa-Ce-54X" secondAttribute="leadingMargin" id="WAj-cK-bSs"/>
+                            <constraint firstItem="cfw-Gr-Rl2" firstAttribute="top" secondItem="0xF-36-TJD" secondAttribute="bottom" constant="28" id="agk-aa-rsF"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="explainerLabel" destination="cfw-Gr-Rl2" id="gMR-Xp-Z12"/>
+                        <outlet property="resultsLabel" destination="C40-bs-8CU" id="8Tk-J5-kLe"/>
+                        <outlet property="timeRangeSegmentedControl" destination="oBr-fN-g75" id="00f-xR-Qqe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sSy-AT-8TI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
