@@ -84,7 +84,7 @@
             
             // TODO: only change the colors of the values, not the whole thing
             
-            NSString *resultString = [NSString stringWithFormat:@"Altitude Change:\n%1.2f meters\n\n Pressure Change:\n%1.4f kilopascals",
+            NSString *resultString = [NSString stringWithFormat:@"Altitude Change:\n%1.2f meters\n\n Pressure:\n%1.4f kilopascals",
                                       [altitudeData.relativeAltitude doubleValue], [altitudeData.pressure doubleValue]];
             
             if (strongSelf) {
