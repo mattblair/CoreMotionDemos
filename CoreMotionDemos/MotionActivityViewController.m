@@ -120,10 +120,6 @@
         }
     }
     
-//    NSDictionary *confidenceAttributes = @{ NSForegroundColorAttributeName : textColor };
-//    self.confidenceLabel.attributedText = [[NSAttributedString alloc] initWithString:confidenceString
-//                                                                          attributes:confidenceAttributes];
-    
     self.confidenceLabel.text = confidenceString;
     self.confidenceLabel.backgroundColor = bgColor;
     
@@ -147,7 +143,7 @@
     
     // cycling was added in iOS 8
     if ([activity respondsToSelector:@selector(cycling)]) {
-        if ([activity cycling]) {
+        if (activity.cycling) {
             [activityStrings addObject:@"Cycling"];
         }
     }
