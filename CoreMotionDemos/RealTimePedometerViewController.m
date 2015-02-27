@@ -169,7 +169,7 @@ typedef NS_ENUM(NSInteger, CMDRealTimeStartFrom) {
     
     if ([CMPedometer isFloorCountingAvailable]) {
         floorString = [NSString stringWithFormat:@"Floors: %@ up, %@ down",
-                       pmData.floorsAscended, pmData.floorsAscended];
+                       pmData.floorsAscended, pmData.floorsDescended];
     } else {
         floorString = @"(Floor counts not available on this device.)";
     }

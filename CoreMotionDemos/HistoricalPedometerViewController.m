@@ -167,7 +167,7 @@ typedef NS_ENUM(NSInteger, CMDHistoricalTimeRange) {
         
         // simple string formatting. Could use NSLocalizedString for template.
         floorString = [NSString stringWithFormat:@"Floors: %@ up, %@ down",
-                       pmData.floorsAscended, pmData.floorsAscended];
+                       pmData.floorsAscended, pmData.floorsDescended];
     } else {
         floorString = @"(Floor counts not available on this device.)";
     }
