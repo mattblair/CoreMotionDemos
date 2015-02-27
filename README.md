@@ -1,6 +1,6 @@
 # CoreMotion Demos
 
-This project contains demos of some of the Core Motion APIs available in iOS 8 which I created for talk at PDX Cocoaheads:
+This project contains demos of some of the Core Motion APIs available in iOS 8 which I created for a talk at PDX CocoaHeads:
 
 * Real-time Motion Activity (this was introduced in iOS 7, but the `bicycling` property is new)
 * Real-time pedometer 
@@ -16,7 +16,7 @@ Some features will work on an iPhone 5s, but running the app on an iPhone 6 or 6
 
 [CoreMotion Framework Reference](https://developer.apple.com/library/prerelease/ios/documentation/CoreMotion/Reference/CoreMotion_Reference/index.html)
 
-WWDC 2014 Session 612: Motion Tracking with the CoreMotion Framework [AsciiWWDC](http://asciiwwdc.com/2014/sessions/612)
+WWDC 2014 Session 612: Motion Tracking with the CoreMotion Framework [(AsciiWWDC)](http://asciiwwdc.com/2014/sessions/612)
 
 Sample code from that session: [MotionActivityDemo](https://developer.apple.com/wwdc/resources/sample-code/)
 
@@ -26,7 +26,7 @@ Sample code from that session: [MotionActivityDemo](https://developer.apple.com/
 
 [UIRequiredDeviceCapabilities](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/iPhoneOSKeys.html#//apple_ref/doc/uid/TP40009252-SW3)
 
-[A deeper exploration of ways to accesss magnetometer data](http://stackoverflow.com/a/15470571)
+[A deeper exploration of ways to access magnetometer data](http://stackoverflow.com/a/15470571)
 
 ## License
 
