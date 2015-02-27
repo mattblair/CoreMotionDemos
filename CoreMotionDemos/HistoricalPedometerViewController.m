@@ -58,6 +58,7 @@ typedef NS_ENUM(NSInteger, CMDHistoricalTimeRange) {
     
     // unit depends on selected region, not language
     self.distanceFormatter = [[NSLengthFormatter alloc] init];
+    self.distanceFormatter.unitStyle = NSFormattingUnitStyleLong;
     self.distanceFormatter.numberFormatter.locale = [NSLocale autoupdatingCurrentLocale];
     self.distanceFormatter.numberFormatter.maximumFractionDigits = 2;
     
