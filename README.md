@@ -1,5 +1,7 @@
 # CoreMotion Demos
 
+This sample code and [the related talk](https://github.com/mattblair/CoreMotionDemos/blob/master/CoreMotion-CocoaHeads150225.pdf) are based on code from [Peripatetic](https://itunes.apple.com/us/app/peripatetic/id966697947?mt=8), which is now available in the App Store.
+
 This project contains demos of some of the Core Motion APIs available in iOS 8 which I created for a talk at PDX CocoaHeads:
 
 * Real-time Motion Activity (this was introduced in iOS 7, but the `bicycling` property is new)
@@ -9,6 +11,8 @@ This project contains demos of some of the Core Motion APIs available in iOS 8 w
 * CLFloor (which is CoreLocation, but I added it here so I can check for defined floors while I'm wandering the world)
 
 Some features will work on an iPhone 5s, but running the app on an iPhone 6 or 6 Plus is the best option. It won't do much on a simulator.
+
+
 
 ## Additional Resources
 
